@@ -22,8 +22,8 @@ public class Empleados extends Usuarios{
         super();
     }
 
-    public Empleados(String nombre, String apellido, Date fecha, String genero, String depa, String ID, String carrera, String puesto, int anios) {
-        super(nombre, apellido, fecha, genero, depa, ID);
+    public Empleados(String nombre, String apellido,String contrasena, Date fecha, String genero, String depa, String ID, String carrera, String puesto, int anios) {
+        super(nombre, apellido, contrasena, fecha, genero, depa, ID);
         this.carrera = carrera;
         this.puesto = puesto;
         this.anios = anios;

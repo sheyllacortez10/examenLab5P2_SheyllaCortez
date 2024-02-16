@@ -4,7 +4,9 @@
  */
 package examenlab5p2_sheyllacortez;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Random;
 
 /**
  *
@@ -25,7 +27,7 @@ public class Usuarios {
     public Usuarios() {
     }
 
-    public Usuarios(String nombre, String apellido, Date fecha, String genero, String depa, String ID) {
+    public Usuarios(String nombre, String apellido, String contrasena, Date fecha, String genero, String depa, String ID) {
         this.nombre = nombre; 
         this.apellido = apellido;
         this.contrasena = contrasena;
@@ -100,5 +102,49 @@ public class Usuarios {
         return "Usuarios{" + "nombre=" + nombre + ", apellido=" + apellido + ", contrasena=" + contrasena + ", fecha=" + fecha + ", genero=" + genero + ", depa=" + depa + ", ID=" + ID + '}';
     }
     
+    
+    //ma para generar id
+    public String myID(){
+        Random rd = new Random();
+        if (depa.equalsIgnoreCase("Francisco Morazan")) {
+            ID += "01";
+            ID += rd.nextInt(01, 28);
+            ID += "-";
+            ID += fecha.getYear() +1900;
+            ID += "-";
+            ID += rd.nextInt(0, 9);
+            ID += rd.nextInt(0, 9);
+            ID += rd.nextInt(0, 9);
+            ID += rd.nextInt(0, 9);
+            ID += rd.nextInt(0, 9);
+            return ID;
+        } else if (depa.equalsIgnoreCase("Cortes")) {
+            ID += "02";
+            ID += rd.nextInt(01, 12);
+            ID += "-";
+            ID += fecha.getYear() + 1900;
+            ID += "-";
+            ID += rd.nextInt(0, 9);
+            ID += rd.nextInt(0, 9);
+            ID += rd.nextInt(0, 9);
+            ID += rd.nextInt(0, 9);
+            ID += rd.nextInt(0, 9);
+            return ID;
+        } else if (depa.equalsIgnoreCase("Comayagua")) {
+            ID += "03";
+            ID += rd.nextInt(01, 21);
+            ID += fecha.getYear() + 1900;
+            ID += "-";
+            ID += rd.nextInt(0, 9);
+            ID += rd.nextInt(0, 9);
+            ID += rd.nextInt(0, 9);
+            ID += rd.nextInt(0, 9);
+            ID += rd.nextInt(0, 9);
+            return ID;
+        } else {
+            System.out.println("No valido");
+        }
+        return "";
+    }
     
 }

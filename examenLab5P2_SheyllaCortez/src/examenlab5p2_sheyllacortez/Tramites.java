@@ -5,11 +5,6 @@
 package examenlab5p2_sheyllacortez;
 
 import java.util.Date;
-
-/**
- *
- * @author DELL
- */
 public class Tramites {
     //att
     private String nombre = "";

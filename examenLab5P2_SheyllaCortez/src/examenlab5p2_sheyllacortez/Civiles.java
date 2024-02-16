@@ -15,8 +15,8 @@ public class Civiles extends Usuarios{
     //att
     ArrayList<Tramites> tramite = new ArrayList<>();
 
-    public Civiles(String nombre, String apellido, Date fecha, String genero, String depa, String ID) {
-        super(nombre, apellido, fecha, genero, depa, ID);
+    public Civiles(String nombre, String apellido, String contrasena, Date fecha, String genero, String depa, String ID) {
+        super(nombre, apellido, contrasena, fecha, genero, depa, ID);
     }
 
     public Civiles() {

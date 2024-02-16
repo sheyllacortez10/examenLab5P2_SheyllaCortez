@@ -5,6 +5,11 @@
  */
 package examenlab5p2_sheyllacortez;
 
+import java.util.ArrayList;
+import java.util.Date;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author DELL
@@ -15,7 +20,11 @@ public class Registro extends javax.swing.JFrame {
      * Creates new form Registro
      */
     public Registro() {
+       
+        usuarios.add(new Civiles("Eli", "Castro", "1234", fecha, "femenino", "Francisco Morazan", civiles.myID()));
+        usuarios.add(new Empleados("Manuel", "Cortez", "5678", fecha1, "masculino", "Cortes", empleados.myID(), "Sistemas", "CEO", 3));
         initComponents();
+
     }
 
     /**
@@ -27,26 +36,227 @@ public class Registro extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jd_empleados = new javax.swing.JDialog();
+        jTabbedPane1 = new javax.swing.JTabbedPane();
+        jp_info = new javax.swing.JPanel();
+        jLabel4 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jt_info = new javax.swing.JTable();
+        jp_modi = new javax.swing.JPanel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jb_cerrar = new javax.swing.JButton();
+        jp_login = new javax.swing.JPanel();
+        jl_topic = new javax.swing.JLabel();
+        jl_nombre = new javax.swing.JLabel();
+        jtxt_nombre = new javax.swing.JTextField();
+        jl_contrasena = new javax.swing.JLabel();
+        jtxt_contrasena = new javax.swing.JTextField();
+        jb_ingresar = new javax.swing.JButton();
+
+        jLabel4.setText("Información de Civiles: ");
+
+        jt_info.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Nombre Completo", "ID", "Fecha de Nacimiento"
+            }
+        ));
+        jScrollPane1.setViewportView(jt_info);
+
+        javax.swing.GroupLayout jp_infoLayout = new javax.swing.GroupLayout(jp_info);
+        jp_info.setLayout(jp_infoLayout);
+        jp_infoLayout.setHorizontalGroup(
+            jp_infoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jp_infoLayout.createSequentialGroup()
+                .addGap(26, 26, 26)
+                .addGroup(jp_infoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 770, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel4))
+                .addContainerGap(39, Short.MAX_VALUE))
+        );
+        jp_infoLayout.setVerticalGroup(
+            jp_infoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jp_infoLayout.createSequentialGroup()
+                .addGap(28, 28, 28)
+                .addComponent(jLabel4)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(132, Short.MAX_VALUE))
+        );
+
+        jTabbedPane1.addTab("Información Civiles", jp_info);
+
+        jLabel3.setText("jLabel3");
+
+        javax.swing.GroupLayout jp_modiLayout = new javax.swing.GroupLayout(jp_modi);
+        jp_modi.setLayout(jp_modiLayout);
+        jp_modiLayout.setHorizontalGroup(
+            jp_modiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jp_modiLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel3)
+                .addContainerGap(792, Short.MAX_VALUE))
+        );
+        jp_modiLayout.setVerticalGroup(
+            jp_modiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jp_modiLayout.createSequentialGroup()
+                .addGap(27, 27, 27)
+                .addComponent(jLabel3)
+                .addContainerGap(289, Short.MAX_VALUE))
+        );
+
+        jTabbedPane1.addTab("Modificar Civiles", jp_modi);
+
+        jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        jLabel1.setText("Bienvenidos:");
+
+        jLabel2.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+
+        jb_cerrar.setText("Cerrar Sesión");
+
+        javax.swing.GroupLayout jd_empleadosLayout = new javax.swing.GroupLayout(jd_empleados.getContentPane());
+        jd_empleados.getContentPane().setLayout(jd_empleadosLayout);
+        jd_empleadosLayout.setHorizontalGroup(
+            jd_empleadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jTabbedPane1, javax.swing.GroupLayout.Alignment.TRAILING)
+            .addGroup(jd_empleadosLayout.createSequentialGroup()
+                .addGap(25, 25, 25)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jb_cerrar, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(75, 75, 75))
+        );
+        jd_empleadosLayout.setVerticalGroup(
+            jd_empleadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jd_empleadosLayout.createSequentialGroup()
+                .addGap(0, 17, Short.MAX_VALUE)
+                .addGroup(jd_empleadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel2)
+                    .addComponent(jb_cerrar, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(12, 12, 12)
+                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 367, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jl_topic.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
+        jl_topic.setText("Log In");
+
+        jl_nombre.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        jl_nombre.setText("Nombre Completo");
+
+        jl_contrasena.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        jl_contrasena.setText("Contraseña");
+
+        jb_ingresar.setText("Ingresar");
+        jb_ingresar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jb_ingresarMouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jp_loginLayout = new javax.swing.GroupLayout(jp_login);
+        jp_login.setLayout(jp_loginLayout);
+        jp_loginLayout.setHorizontalGroup(
+            jp_loginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jp_loginLayout.createSequentialGroup()
+                .addGroup(jp_loginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jp_loginLayout.createSequentialGroup()
+                        .addGap(233, 233, 233)
+                        .addComponent(jl_topic, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jp_loginLayout.createSequentialGroup()
+                        .addGap(31, 31, 31)
+                        .addGroup(jp_loginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jtxt_nombre)
+                            .addComponent(jl_contrasena)
+                            .addComponent(jl_nombre, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jtxt_contrasena, javax.swing.GroupLayout.DEFAULT_SIZE, 484, Short.MAX_VALUE)))
+                    .addGroup(jp_loginLayout.createSequentialGroup()
+                        .addGap(215, 215, 215)
+                        .addComponent(jb_ingresar, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(34, Short.MAX_VALUE))
+        );
+        jp_loginLayout.setVerticalGroup(
+            jp_loginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jp_loginLayout.createSequentialGroup()
+                .addGap(50, 50, 50)
+                .addComponent(jl_topic, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(44, 44, 44)
+                .addComponent(jl_nombre, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jtxt_nombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jl_contrasena)
+                .addGap(18, 18, 18)
+                .addComponent(jtxt_contrasena, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(56, 56, 56)
+                .addComponent(jb_ingresar, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(82, Short.MAX_VALUE))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addComponent(jp_login, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addComponent(jp_login, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    //Login
+    private void jb_ingresarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_ingresarMouseClicked
+        if ((jtxt_nombre.getText().equals("Eli Castro")) && (jtxt_contrasena.getText().equals("1234"))) {
+            jtxt_nombre.setText(""); //limpiar
+            jtxt_contrasena.setText("");
+            JOptionPane.showMessageDialog(this, "Usuario logeado");
+
+            this.setVisible(false);
+        } else if ((jtxt_nombre.getText().equals("Manuel Cortez")) && (jtxt_contrasena.getText().equals("5678"))) {
+            jLabel2.setText("Manuel Cortez");
+            jtxt_nombre.setText(""); //limpiar
+            jtxt_contrasena.setText("");
+            JOptionPane.showMessageDialog(this, "Usuario logeado");
+            this.setVisible(false);
+            for (int i = 0; i < usuarios.size(); i++) {
+                if (usuarios.get(i) instanceof Civiles) {
+                     DefaultTableModel modelo = (DefaultTableModel) jt_info.getModel();
+                     Object [] objeto = {usuarios.get(i).getNombre() + " " + usuarios.get(i).getApellido(), usuarios.get(i).myID(), usuarios.get(i).getFecha()};
+                     modelo.addRow(objeto);
+                }
+            }
+            jd_empleados.setVisible(true);
+            jd_empleados.pack();
+        } else {
+            JOptionPane.showMessageDialog(this, "Usuario incorrecto");
+        }
+    }//GEN-LAST:event_jb_ingresarMouseClicked
+
     /**
      * @param args the command line arguments
      */
+    static ArrayList<Usuarios> usuarios = new ArrayList<>();
+    static Date fecha = new Date(2000-1900, 8, 11);
+    static Date fecha1 = new Date(2001-1900, 9, 12);
+    //Registro
+    static Usuarios civiles = new Civiles();
+    static Usuarios empleados = new Empleados();
+    
+
     public static void main(String args[]) {
+     
+
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
@@ -76,8 +286,27 @@ public class Registro extends javax.swing.JFrame {
                 new Registro().setVisible(true);
             }
         });
+
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTabbedPane jTabbedPane1;
+    private javax.swing.JButton jb_cerrar;
+    private javax.swing.JButton jb_ingresar;
+    private javax.swing.JDialog jd_empleados;
+    private javax.swing.JLabel jl_contrasena;
+    private javax.swing.JLabel jl_nombre;
+    private javax.swing.JLabel jl_topic;
+    private javax.swing.JPanel jp_info;
+    private javax.swing.JPanel jp_login;
+    private javax.swing.JPanel jp_modi;
+    private javax.swing.JTable jt_info;
+    private javax.swing.JTextField jtxt_contrasena;
+    private javax.swing.JTextField jtxt_nombre;
     // End of variables declaration//GEN-END:variables
 }
