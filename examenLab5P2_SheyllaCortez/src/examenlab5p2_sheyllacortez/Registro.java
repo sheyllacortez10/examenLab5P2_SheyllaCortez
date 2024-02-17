@@ -5,8 +5,10 @@
  */
 package examenlab5p2_sheyllacortez;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -20,11 +22,10 @@ public class Registro extends javax.swing.JFrame {
      * Creates new form Registro
      */
     public Registro() {
-       
         usuarios.add(new Civiles("Eli", "Castro", "1234", fecha, "femenino", "Francisco Morazan", civiles.myID()));
         usuarios.add(new Empleados("Manuel", "Cortez", "5678", fecha1, "masculino", "Cortes", empleados.myID(), "Sistemas", "CEO", 3));
+        ((Civiles) usuarios.get(0)).getTramite().add(tramitar);
         initComponents();
-
     }
 
     /**
@@ -42,8 +43,24 @@ public class Registro extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jt_info = new javax.swing.JTable();
+        jLabel5 = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jt_tramites = new javax.swing.JTable();
         jp_modi = new javax.swing.JPanel();
+        cb_id = new javax.swing.JComboBox<>();
+        jl_nmodi = new javax.swing.JLabel();
+        jl_cmodi = new javax.swing.JLabel();
+        jl_smodi = new javax.swing.JLabel();
+        txt_nmodi = new javax.swing.JTextField();
+        jtxt_cmodi = new javax.swing.JTextField();
+        cb_sexo = new javax.swing.JComboBox<>();
         jLabel3 = new javax.swing.JLabel();
+        cb_depamod = new javax.swing.JComboBox<>();
+        jLabel6 = new javax.swing.JLabel();
+        jtxt_amodi = new javax.swing.JTextField();
+        jLabel7 = new javax.swing.JLabel();
+        jCalendar1 = new com.toedter.calendar.JCalendar();
+        jButton1 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jb_cerrar = new javax.swing.JButton();
@@ -55,7 +72,13 @@ public class Registro extends javax.swing.JFrame {
         jtxt_contrasena = new javax.swing.JTextField();
         jb_ingresar = new javax.swing.JButton();
 
+        jd_empleados.setSize(new java.awt.Dimension(900, 600));
+
+        jp_info.setPreferredSize(new java.awt.Dimension(500, 200));
+        jp_info.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
         jLabel4.setText("Información de Civiles: ");
+        jp_info.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(26, 28, -1, -1));
 
         jt_info.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -67,46 +90,114 @@ public class Registro extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(jt_info);
 
-        javax.swing.GroupLayout jp_infoLayout = new javax.swing.GroupLayout(jp_info);
-        jp_info.setLayout(jp_infoLayout);
-        jp_infoLayout.setHorizontalGroup(
-            jp_infoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jp_infoLayout.createSequentialGroup()
-                .addGap(26, 26, 26)
-                .addGroup(jp_infoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 770, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel4))
-                .addContainerGap(39, Short.MAX_VALUE))
-        );
-        jp_infoLayout.setVerticalGroup(
-            jp_infoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jp_infoLayout.createSequentialGroup()
-                .addGap(28, 28, 28)
-                .addComponent(jLabel4)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(132, Short.MAX_VALUE))
-        );
+        jp_info.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(26, 50, 770, 150));
+
+        jLabel5.setText("Tramites: ");
+        jp_info.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(26, 218, 182, -1));
+
+        jt_tramites.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Nombre Tramite", "Descripción", "Fecha", "Numero de identidad"
+            }
+        ));
+        jScrollPane2.setViewportView(jt_tramites);
+
+        jp_info.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 250, 760, 140));
 
         jTabbedPane1.addTab("Información Civiles", jp_info);
 
-        jLabel3.setText("jLabel3");
+        jl_nmodi.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jl_nmodi.setText("Nombre:");
+
+        jl_cmodi.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jl_cmodi.setText("Contraseña:");
+
+        jl_smodi.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jl_smodi.setText("Sexo:");
+
+        jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel3.setText("Departamento:");
+
+        jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel6.setText("Apellido:");
+
+        jLabel7.setText("Fecha de Nacimiento:");
+
+        jButton1.setText("Modificar");
+        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton1MouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jp_modiLayout = new javax.swing.GroupLayout(jp_modi);
         jp_modi.setLayout(jp_modiLayout);
         jp_modiLayout.setHorizontalGroup(
             jp_modiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jp_modiLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel3)
-                .addContainerGap(792, Short.MAX_VALUE))
+                .addGroup(jp_modiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jp_modiLayout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(cb_id, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jp_modiLayout.createSequentialGroup()
+                        .addGap(29, 29, 29)
+                        .addGroup(jp_modiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jLabel3)
+                            .addComponent(jl_cmodi)
+                            .addComponent(jl_nmodi, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jl_smodi, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txt_nmodi)
+                            .addComponent(jtxt_cmodi)
+                            .addComponent(cb_sexo, 0, 229, Short.MAX_VALUE)
+                            .addComponent(cb_depamod, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(44, 44, 44)
+                        .addGroup(jp_modiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jtxt_amodi, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jp_modiLayout.createSequentialGroup()
+                                .addComponent(jCalendar1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(43, 43, 43)
+                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addContainerGap(226, Short.MAX_VALUE))
         );
         jp_modiLayout.setVerticalGroup(
             jp_modiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jp_modiLayout.createSequentialGroup()
                 .addGap(27, 27, 27)
-                .addComponent(jLabel3)
-                .addContainerGap(289, Short.MAX_VALUE))
+                .addGroup(jp_modiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jp_modiLayout.createSequentialGroup()
+                        .addComponent(cb_id, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(35, 35, 35)
+                        .addGroup(jp_modiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jl_nmodi, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel6))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jp_modiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txt_nmodi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jtxt_amodi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(21, 21, 21)
+                        .addGroup(jp_modiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jl_cmodi)
+                            .addComponent(jLabel7))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jp_modiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jp_modiLayout.createSequentialGroup()
+                                .addComponent(jtxt_cmodi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(19, 19, 19)
+                                .addComponent(jl_smodi)
+                                .addGap(18, 18, 18)
+                                .addComponent(cb_sexo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(30, 30, 30)
+                                .addComponent(jLabel3))
+                            .addComponent(jCalendar1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addComponent(cb_depamod, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(33, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Modificar Civiles", jp_modi);
@@ -122,7 +213,6 @@ public class Registro extends javax.swing.JFrame {
         jd_empleados.getContentPane().setLayout(jd_empleadosLayout);
         jd_empleadosLayout.setHorizontalGroup(
             jd_empleadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPane1, javax.swing.GroupLayout.Alignment.TRAILING)
             .addGroup(jd_empleadosLayout.createSequentialGroup()
                 .addGap(25, 25, 25)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -131,17 +221,21 @@ public class Registro extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jb_cerrar, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(75, 75, 75))
+            .addGroup(jd_empleadosLayout.createSequentialGroup()
+                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 876, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         jd_empleadosLayout.setVerticalGroup(
             jd_empleadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jd_empleadosLayout.createSequentialGroup()
-                .addGap(0, 17, Short.MAX_VALUE)
+                .addGap(0, 0, Short.MAX_VALUE)
                 .addGroup(jd_empleadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2)
                     .addComponent(jb_cerrar, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(12, 12, 12)
-                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 367, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 451, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -229,13 +323,27 @@ public class Registro extends javax.swing.JFrame {
             jtxt_contrasena.setText("");
             JOptionPane.showMessageDialog(this, "Usuario logeado");
             this.setVisible(false);
+            DefaultTableModel modelo = (DefaultTableModel) jt_info.getModel();
             for (int i = 0; i < usuarios.size(); i++) {
                 if (usuarios.get(i) instanceof Civiles) {
-                     DefaultTableModel modelo = (DefaultTableModel) jt_info.getModel();
-                     Object [] objeto = {usuarios.get(i).getNombre() + " " + usuarios.get(i).getApellido(), usuarios.get(i).myID(), usuarios.get(i).getFecha()};
-                     modelo.addRow(objeto);
+                    Object[] objeto = {usuarios.get(i).getNombre() + " " + usuarios.get(i).getApellido(), usuarios.get(i).myID(), formato};
+                    modelo.addRow(objeto);
                 }
             }
+            DefaultTableModel modelo2 = (DefaultTableModel) jt_tramites.getModel();
+            for (int i = 0; i < usuarios.size(); i++) {
+                if (usuarios.get(i) instanceof Civiles) {
+                    Object[] objeto = {(((Civiles) usuarios.get(i)).getTramite()).get(i).getNombre(), (((Civiles) usuarios.get(i)).getTramite()).get(i).getDespcrip(), (((Civiles) usuarios.get(i)).getTramite()).get(i).getFechasoli(), (((Civiles) usuarios.get(i)).getID())};
+                    modelo2.addRow(objeto);
+                }
+            }
+            jt_info.setModel(modelo);
+            jt_tramites.setModel(modelo2);
+            DefaultComboBoxModel modelo3 = (DefaultComboBoxModel) cb_id.getModel();
+            modelo3.addElement(((Civiles) usuarios.get(0)).getID());
+            cb_id.setModel(modelo3);
+            
+            
             jd_empleados.setVisible(true);
             jd_empleados.pack();
         } else {
@@ -243,19 +351,47 @@ public class Registro extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jb_ingresarMouseClicked
 
+    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
+       //Hay que darle modificar
+        usuarios.get(0).setNombre(txt_nmodi.getText());
+        usuarios.get(0).setNombre(jtxt_cmodi.getText());
+        
+        DefaultComboBoxModel modelo4 = (DefaultComboBoxModel) cb_sexo.getModel();
+        modelo4.addElement(((Civiles) usuarios.get(0)).getGenero());
+        cb_sexo.setModel(modelo4);
+        usuarios.get(0).setGenero(cb_sexo.getSelectedItem().toString());
+
+        DefaultComboBoxModel modelo5 = (DefaultComboBoxModel) cb_depamod.getModel();
+        modelo5.addElement(((Civiles) usuarios.get(0)).getDepa());
+        cb_depamod.setModel(modelo5);
+        usuarios.get(0).setGenero(cb_depamod.getSelectedItem().toString());
+        
+        usuarios.get(0).setApellido(jtxt_amodi.getText());
+    }//GEN-LAST:event_jButton1MouseClicked
+
     /**
      * @param args the command line arguments
      */
+    Tramites tramitar = new Tramites("Dormir", "Dormir 8 horas", fecha2 ,civiles.getID());
     static ArrayList<Usuarios> usuarios = new ArrayList<>();
-    static Date fecha = new Date(2000-1900, 8, 11);
-    static Date fecha1 = new Date(2001-1900, 9, 12);
+    
+    static Date fecha = new Date(2000 - 1900, 8, 11);
+    SimpleDateFormat formatof = new SimpleDateFormat("dd/MM/yyyy");
+    String formato = formatof.format(fecha);
+   
+    static Date fecha1 = new Date(2001 - 1900, 9, 12);
+    SimpleDateFormat formatof1 = new SimpleDateFormat("dd/MM/yyyy");
+    String formato1 = formatof1.format(fecha1);
+
+    static Date fecha2 = new Date();
+    SimpleDateFormat formatof2 = new SimpleDateFormat("dd/MM/yyyy");
+    String formato2 = formatof2.format(fecha2);
     //Registro
     static Usuarios civiles = new Civiles();
     static Usuarios empleados = new Empleados();
-    
 
     public static void main(String args[]) {
-     
+
 
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -290,23 +426,39 @@ public class Registro extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox<String> cb_depamod;
+    private javax.swing.JComboBox<String> cb_id;
+    private javax.swing.JComboBox<String> cb_sexo;
+    private javax.swing.JButton jButton1;
+    private com.toedter.calendar.JCalendar jCalendar1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JButton jb_cerrar;
     private javax.swing.JButton jb_ingresar;
     private javax.swing.JDialog jd_empleados;
+    private javax.swing.JLabel jl_cmodi;
     private javax.swing.JLabel jl_contrasena;
+    private javax.swing.JLabel jl_nmodi;
     private javax.swing.JLabel jl_nombre;
+    private javax.swing.JLabel jl_smodi;
     private javax.swing.JLabel jl_topic;
     private javax.swing.JPanel jp_info;
     private javax.swing.JPanel jp_login;
     private javax.swing.JPanel jp_modi;
     private javax.swing.JTable jt_info;
+    private javax.swing.JTable jt_tramites;
+    private javax.swing.JTextField jtxt_amodi;
+    private javax.swing.JTextField jtxt_cmodi;
     private javax.swing.JTextField jtxt_contrasena;
     private javax.swing.JTextField jtxt_nombre;
+    private javax.swing.JTextField txt_nmodi;
     // End of variables declaration//GEN-END:variables
 }

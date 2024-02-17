@@ -132,7 +132,7 @@ public class Usuarios {
             return ID;
         } else if (depa.equalsIgnoreCase("Comayagua")) {
             ID += "03";
-            ID += rd.nextInt(01, 21);
+            ID += rd.nextInt(001, 21);
             ID += fecha.getYear() + 1900;
             ID += "-";
             ID += rd.nextInt(0, 9);

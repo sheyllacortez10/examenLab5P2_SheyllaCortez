@@ -10,14 +10,14 @@ public class Tramites {
     private String nombre = "";
     private String despcrip = "";
     private Date fechasoli;
-    private int ID = 0;
+    private String ID = "";
     
     //cons
 
     public Tramites() {
     }
 
-    public Tramites(String nombre, String descrip, Date fechasoli, int ID) {
+    public Tramites(String nombre, String descrip, Date fechasoli, String ID) {
         this.nombre = nombre;
         this.despcrip = descrip;
         this.fechasoli = fechasoli;
@@ -50,11 +50,11 @@ public class Tramites {
         this.fechasoli = fechasoli;
     }
 
-    public int getID() {
+    public String getID() {
         return ID;
     }
 
-    public void setID(int ID) {
+    public void setID(String ID) {
         this.ID = ID;
     }
 
