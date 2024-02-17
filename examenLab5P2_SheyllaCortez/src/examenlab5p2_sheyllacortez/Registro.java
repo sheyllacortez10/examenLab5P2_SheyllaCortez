@@ -74,6 +74,12 @@ public class Registro extends javax.swing.JFrame {
 
         jd_empleados.setSize(new java.awt.Dimension(900, 600));
 
+        jTabbedPane1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTabbedPane1MouseClicked(evt);
+            }
+        });
+
         jp_info.setPreferredSize(new java.awt.Dimension(500, 200));
         jp_info.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -355,19 +361,23 @@ public class Registro extends javax.swing.JFrame {
        //Hay que darle modificar
         usuarios.get(0).setNombre(txt_nmodi.getText());
         usuarios.get(0).setNombre(jtxt_cmodi.getText());
-        
-        DefaultComboBoxModel modelo4 = (DefaultComboBoxModel) cb_sexo.getModel();
-        modelo4.addElement(((Civiles) usuarios.get(0)).getGenero());
-        cb_sexo.setModel(modelo4);
+
         usuarios.get(0).setGenero(cb_sexo.getSelectedItem().toString());
 
-        DefaultComboBoxModel modelo5 = (DefaultComboBoxModel) cb_depamod.getModel();
-        modelo5.addElement(((Civiles) usuarios.get(0)).getDepa());
-        cb_depamod.setModel(modelo5);
         usuarios.get(0).setGenero(cb_depamod.getSelectedItem().toString());
         
         usuarios.get(0).setApellido(jtxt_amodi.getText());
     }//GEN-LAST:event_jButton1MouseClicked
+
+    private void jTabbedPane1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTabbedPane1MouseClicked
+        DefaultComboBoxModel modelo4 = (DefaultComboBoxModel) cb_sexo.getModel();
+        modelo4.addElement(((Civiles) usuarios.get(0)).getGenero());
+        cb_sexo.setModel(modelo4);
+        
+        DefaultComboBoxModel modelo5 = (DefaultComboBoxModel) cb_depamod.getModel();
+        modelo5.addElement(((Civiles) usuarios.get(0)).getDepa());
+        cb_depamod.setModel(modelo5);
+    }//GEN-LAST:event_jTabbedPane1MouseClicked
 
     /**
      * @param args the command line arguments
