@@ -370,12 +370,16 @@ public class Registro extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1MouseClicked
 
     private void jTabbedPane1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTabbedPane1MouseClicked
+        //Al moverse de panel se setea el modelo
         DefaultComboBoxModel modelo4 = (DefaultComboBoxModel) cb_sexo.getModel();
-        modelo4.addElement(((Civiles) usuarios.get(0)).getGenero());
+        modelo4.addElement("Femenino");
+        modelo4.addElement("Masculino");
         cb_sexo.setModel(modelo4);
         
         DefaultComboBoxModel modelo5 = (DefaultComboBoxModel) cb_depamod.getModel();
-        modelo5.addElement(((Civiles) usuarios.get(0)).getDepa());
+        modelo5.addElement("Francisco Morazan");
+        modelo5.addElement("Cortes");
+        modelo5.addElement("Comayagua");
         cb_depamod.setModel(modelo5);
     }//GEN-LAST:event_jTabbedPane1MouseClicked
 
