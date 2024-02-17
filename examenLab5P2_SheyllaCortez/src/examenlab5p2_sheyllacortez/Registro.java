@@ -329,6 +329,8 @@ public class Registro extends javax.swing.JFrame {
             jtxt_contrasena.setText("");
             JOptionPane.showMessageDialog(this, "Usuario logeado");
             this.setVisible(false);
+            
+            //Listar info de los usuarios civiles
             DefaultTableModel modelo = (DefaultTableModel) jt_info.getModel();
             for (int i = 0; i < usuarios.size(); i++) {
                 if (usuarios.get(i) instanceof Civiles) {
@@ -336,6 +338,8 @@ public class Registro extends javax.swing.JFrame {
                     modelo.addRow(objeto);
                 }
             }
+            
+            //Listar los tramites en la tabla
             DefaultTableModel modelo2 = (DefaultTableModel) jt_tramites.getModel();
             for (int i = 0; i < usuarios.size(); i++) {
                 if (usuarios.get(i) instanceof Civiles) {
@@ -343,13 +347,17 @@ public class Registro extends javax.swing.JFrame {
                     modelo2.addRow(objeto);
                 }
             }
+            
+            //setear modelo 2
             jt_info.setModel(modelo);
             jt_tramites.setModel(modelo2);
+            
+            //setear en el combo box el id de los civiles disponibles
             DefaultComboBoxModel modelo3 = (DefaultComboBoxModel) cb_id.getModel();
             modelo3.addElement(((Civiles) usuarios.get(0)).getID());
             cb_id.setModel(modelo3);
             
-            
+            //jdialog
             jd_empleados.setVisible(true);
             jd_empleados.pack();
         } else {
@@ -376,6 +384,7 @@ public class Registro extends javax.swing.JFrame {
         modelo4.addElement("Masculino");
         cb_sexo.setModel(modelo4);
         
+        //setear los modeos que pueden haber de departamentos
         DefaultComboBoxModel modelo5 = (DefaultComboBoxModel) cb_depamod.getModel();
         modelo5.addElement("Francisco Morazan");
         modelo5.addElement("Cortes");
@@ -383,9 +392,7 @@ public class Registro extends javax.swing.JFrame {
         cb_depamod.setModel(modelo5);
     }//GEN-LAST:event_jTabbedPane1MouseClicked
 
-    /**
-     * @param args the command line arguments
-     */
+    //Declaracion e instanciación de variables
     Tramites tramitar = new Tramites("Dormir", "Dormir 8 horas", fecha2 ,civiles.getID());
     static ArrayList<Usuarios> usuarios = new ArrayList<>();
     
