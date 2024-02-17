@@ -64,6 +64,20 @@ public class Registro extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jb_cerrar = new javax.swing.JButton();
+        jd_civiles = new javax.swing.JDialog();
+        jTabbedPane2 = new javax.swing.JTabbedPane();
+        jPanel1 = new javax.swing.JPanel();
+        jLabel9 = new javax.swing.JLabel();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        jt_civil = new javax.swing.JTable();
+        jLabel10 = new javax.swing.JLabel();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        jt_tramiteciviles = new javax.swing.JTable();
+        jLabel11 = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
+        jLabel8 = new javax.swing.JLabel();
+        jl_civil = new javax.swing.JLabel();
+        jButton2 = new javax.swing.JButton();
         jp_login = new javax.swing.JPanel();
         jl_topic = new javax.swing.JLabel();
         jl_nombre = new javax.swing.JLabel();
@@ -249,6 +263,119 @@ public class Registro extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
+        jLabel9.setText("Información Perosnal:");
+
+        jt_civil.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Nombre Completo", "No. de Identidad", "Fecha de Nacimiento"
+            }
+        ));
+        jScrollPane3.setViewportView(jt_civil);
+
+        jLabel10.setText("Tramites:");
+
+        jt_tramiteciviles.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Nombre de Tramite", "Descripcion", "Fecha", "No. de Identidad"
+            }
+        ));
+        jScrollPane4.setViewportView(jt_tramiteciviles);
+
+        jLabel11.setText("Tramites");
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(29, 29, 29)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 616, Short.MAX_VALUE)
+                        .addComponent(jScrollPane4))
+                    .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(26, 26, 26)
+                .addComponent(jLabel9)
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(36, 36, 36)
+                .addComponent(jLabel11)
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(404, 404, 404)
+                .addComponent(jLabel10)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        jTabbedPane2.addTab("Información Personal", jPanel1);
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 651, Short.MAX_VALUE)
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 340, Short.MAX_VALUE)
+        );
+
+        jTabbedPane2.addTab("Gestion de Tramites", jPanel2);
+
+        jLabel8.setText("Bienvenido:");
+
+        jButton2.setText("Cerrar Sesión");
+        jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton2MouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jd_civilesLayout = new javax.swing.GroupLayout(jd_civiles.getContentPane());
+        jd_civiles.getContentPane().setLayout(jd_civilesLayout);
+        jd_civilesLayout.setHorizontalGroup(
+            jd_civilesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jd_civilesLayout.createSequentialGroup()
+                .addGroup(jd_civilesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jd_civilesLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jTabbedPane2)
+                        .addGap(177, 177, 177))
+                    .addGroup(jd_civilesLayout.createSequentialGroup()
+                        .addGap(16, 16, 16)
+                        .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(223, 223, 223)))
+                .addComponent(jl_civil, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jd_civilesLayout.setVerticalGroup(
+            jd_civilesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jd_civilesLayout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addGroup(jd_civilesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jl_civil)
+                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(jTabbedPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jl_topic.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
@@ -323,11 +450,35 @@ public class Registro extends javax.swing.JFrame {
     //Login
     private void jb_ingresarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_ingresarMouseClicked
         if ((jtxt_nombre.getText().equals("Eli Castro")) && (jtxt_contrasena.getText().equals("1234"))) {
+            jl_civil.setText("Eli Castro");
             jtxt_nombre.setText(""); //limpiar
             jtxt_contrasena.setText("");
             JOptionPane.showMessageDialog(this, "Usuario logeado");
-
             this.setVisible(false);
+
+            DefaultTableModel modelo = (DefaultTableModel) jt_civil.getModel();
+            for (int i = 0; i < usuarios.size(); i++) {
+                if (usuarios.get(i) instanceof Civiles) {
+                    Object[] objeto = {usuarios.get(i).getNombre() + " " + usuarios.get(i).getApellido(), usuarios.get(i).myID(), formato};
+                    modelo.addRow(objeto);
+                }
+            }
+
+            DefaultTableModel modelo2 = (DefaultTableModel) jt_tramiteciviles.getModel();
+            for (int i = 0; i < usuarios.size(); i++) {
+                if (usuarios.get(i) instanceof Civiles) {
+                    Object[] objeto = {(((Civiles) usuarios.get(i)).getTramite()).get(i).getNombre(), (((Civiles) usuarios.get(i)).getTramite()).get(i).getDespcrip(), (((Civiles) usuarios.get(i)).getTramite()).get(i).getFechasoli(), (((Civiles) usuarios.get(i)).getID())};
+                    modelo2.addRow(objeto);
+                }
+            }
+
+            jt_civil.setModel(modelo);
+            jt_tramiteciviles.setModel(modelo2);
+            
+            //jdialog
+            jd_civiles.setVisible(true);
+            jd_civiles.pack();
+
         } else if ((jtxt_nombre.getText().equals("Manuel Cortez")) && (jtxt_contrasena.getText().equals("5678"))) {
             jLabel2.setText("Manuel Cortez");
             jtxt_nombre.setText(""); //limpiar
@@ -404,6 +555,11 @@ public class Registro extends javax.swing.JFrame {
         this.setVisible(true);
     }//GEN-LAST:event_jb_cerrarMouseClicked
 
+    private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
+        jd_civiles.setVisible(false);
+        this.setVisible(true);
+    }//GEN-LAST:event_jButton2MouseClicked
+
     //Declaracion e instanciación de variables
     Tramites tramitar = new Tramites("Dormir", "Dormir 8 horas", fecha2 ,civiles.getID());
     static ArrayList<Usuarios> usuarios = new ArrayList<>();
@@ -463,20 +619,32 @@ public class Registro extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> cb_id;
     private javax.swing.JComboBox<String> cb_sexo;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private com.toedter.calendar.JCalendar jCalendar1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JTabbedPane jTabbedPane1;
+    private javax.swing.JTabbedPane jTabbedPane2;
     private javax.swing.JButton jb_cerrar;
     private javax.swing.JButton jb_ingresar;
+    private javax.swing.JDialog jd_civiles;
     private javax.swing.JDialog jd_empleados;
+    private javax.swing.JLabel jl_civil;
     private javax.swing.JLabel jl_cmodi;
     private javax.swing.JLabel jl_contrasena;
     private javax.swing.JLabel jl_nmodi;
@@ -486,7 +654,9 @@ public class Registro extends javax.swing.JFrame {
     private javax.swing.JPanel jp_info;
     private javax.swing.JPanel jp_login;
     private javax.swing.JPanel jp_modi;
+    private javax.swing.JTable jt_civil;
     private javax.swing.JTable jt_info;
+    private javax.swing.JTable jt_tramiteciviles;
     private javax.swing.JTable jt_tramites;
     private javax.swing.JTextField jtxt_amodi;
     private javax.swing.JTextField jtxt_cmodi;
