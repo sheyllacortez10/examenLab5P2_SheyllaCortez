@@ -214,6 +214,11 @@ public class Registro extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
 
         jb_cerrar.setText("Cerrar Sesión");
+        jb_cerrar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jb_cerrarMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jd_empleadosLayout = new javax.swing.GroupLayout(jd_empleados.getContentPane());
         jd_empleados.getContentPane().setLayout(jd_empleadosLayout);
@@ -391,6 +396,11 @@ public class Registro extends javax.swing.JFrame {
         modelo5.addElement("Comayagua");
         cb_depamod.setModel(modelo5);
     }//GEN-LAST:event_jTabbedPane1MouseClicked
+
+    private void jb_cerrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_cerrarMouseClicked
+        jd_empleados.setVisible(false);
+        this.setVisible(true);
+    }//GEN-LAST:event_jb_cerrarMouseClicked
 
     //Declaracion e instanciación de variables
     Tramites tramitar = new Tramites("Dormir", "Dormir 8 horas", fecha2 ,civiles.getID());

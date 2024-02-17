@@ -349,6 +349,9 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Cerrar Sesi&#xf3;n"/>
           </Properties>
+          <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jb_cerrarMouseClicked"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>
