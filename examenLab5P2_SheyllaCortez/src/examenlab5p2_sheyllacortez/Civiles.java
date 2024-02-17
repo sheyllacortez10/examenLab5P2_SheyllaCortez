@@ -36,7 +36,7 @@ public class Civiles extends Usuarios{
 
     @Override
     public String toString() {
-        return "Civiles{" + "tramite=" + tramite + '}';
+        return super.toString() + " | " + "Civiles{" + "tramite=" + tramite + '}';
     }
     
 }

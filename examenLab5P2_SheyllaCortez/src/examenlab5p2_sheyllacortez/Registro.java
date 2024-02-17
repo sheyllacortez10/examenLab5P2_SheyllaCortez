@@ -373,13 +373,14 @@ public class Registro extends javax.swing.JFrame {
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
        //Hay que darle modificar
         usuarios.get(0).setNombre(txt_nmodi.getText());
-        usuarios.get(0).setNombre(jtxt_cmodi.getText());
+        usuarios.get(0).setContrasena(jtxt_cmodi.getText());
 
         usuarios.get(0).setGenero(cb_sexo.getSelectedItem().toString());
 
-        usuarios.get(0).setGenero(cb_depamod.getSelectedItem().toString());
+        usuarios.get(0).setDepa(cb_depamod.getSelectedItem().toString());
         
         usuarios.get(0).setApellido(jtxt_amodi.getText());
+        System.out.println(usuarios.get(0));
     }//GEN-LAST:event_jButton1MouseClicked
 
     private void jTabbedPane1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTabbedPane1MouseClicked
@@ -398,6 +399,7 @@ public class Registro extends javax.swing.JFrame {
     }//GEN-LAST:event_jTabbedPane1MouseClicked
 
     private void jb_cerrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_cerrarMouseClicked
+        //salir del tabbed pane de empleados para regresar al log in
         jd_empleados.setVisible(false);
         this.setVisible(true);
     }//GEN-LAST:event_jb_cerrarMouseClicked
